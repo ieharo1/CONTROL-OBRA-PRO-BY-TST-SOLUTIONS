@@ -1,0 +1,54 @@
+name: cobranza_pro
+description: "COBRANZA PRO - Control Profesional de Deudas y Cobros"
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.11.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+  
+  # State Management
+  flutter_riverpod: ^2.6.1
+  
+  # Navigation
+  go_router: ^14.8.1
+  
+  # Database
+  sqflite: ^2.4.2
+  path: ^1.9.1
+  
+  # Utilities
+  path_provider: ^2.1.5
+  intl: ^0.20.2
+  uuid: ^4.5.1
+  
+  # PDF Generation
+  pdf: ^3.11.3
+  printing: ^5.14.2
+  
+  # External Links
+  url_launcher: ^6.3.1
+  
+  # Image handling
+  image_picker: ^1.1.2
+  
+  # File sharing
+  share_plus: ^10.1.4
+  
+  # Permissions
+  permission_handler: ^11.3.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true
+  
+  assets:
+    - assets/

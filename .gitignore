@@ -1,0 +1,15 @@
+.dart_tool/
+build/
+*.iml
+.android/
+.ios/
+.packages
+.pub-cache/
+.flutter-plugins
+.flutter-plugins-dependencies
+pubspec.lock
+
+# Other projects
+APP*/
+SISTEMA*/
+
