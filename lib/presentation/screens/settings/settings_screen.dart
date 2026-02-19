@@ -37,6 +37,7 @@ class SettingsScreen extends ConsumerWidget {
   }
 
   Future<void> _exportBackup(BuildContext context) async {
+    final scaffoldMessenger = ScaffoldMessenger.of(context);
     try {
       final dbService = DatabaseService.instance;
       final jsonData = await dbService.exportDatabase();
@@ -44,12 +45,12 @@ class SettingsScreen extends ConsumerWidget {
       await file.writeAsString(jsonData);
       
       if (context.mounted) {
-        await Share.shareXFiles([XFile(file.path)], text: 'Cobranza Pro Backup');
-        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Respaldo creado')));
+        await Share.shareXFiles([XFile(file.path)], text: 'Control Obra Pro Backup');
+        scaffoldMessenger.showSnackBar(const SnackBar(content: Text('Respaldo creado')));
       }
     } catch (e) {
       if (context.mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Error: $e')));
+        scaffoldMessenger.showSnackBar(SnackBar(content: Text('Error: $e')));
       }
     }
   }
@@ -67,13 +68,14 @@ class SettingsScreen extends ConsumerWidget {
       ),
     );
 
-    if (confirmed != true) return;
+    if (confirmed != true || !context.mounted) return;
 
+    final scaffoldMessenger = ScaffoldMessenger.of(context);
     try {
-      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Funcionalidad de importación en desarrollo')));
+      scaffoldMessenger.showSnackBar(const SnackBar(content: Text('Funcionalidad de importación en desarrollo')));
     } catch (e) {
       if (context.mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Error: $e')));
+        scaffoldMessenger.showSnackBar(SnackBar(content: Text('Error: $e')));
       }
     }
   }

@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import '../../providers/providers.dart';
-import '../../../data/models/debt.dart';
 import '../../../data/models/client.dart';
-import '../../../data/repositories/debt_repository.dart';
 
 class DebtFormScreen extends ConsumerStatefulWidget {
   final String? debtUuid;
@@ -70,8 +68,11 @@ class _DebtFormScreenState extends ConsumerState<DebtFormScreen> {
     );
     if (picked != null) {
       setState(() {
-        if (isDueDate) _dueDate = picked;
-        else _date = picked;
+        if (isDueDate) {
+          _dueDate = picked;
+        } else {
+          _date = picked;
+        }
       });
     }
   }
@@ -138,7 +139,7 @@ class _DebtFormScreenState extends ConsumerState<DebtFormScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     DropdownButtonFormField<String>(
-                      value: _selectedClientUuid,
+                      initialValue: _selectedClientUuid,
                       decoration: const InputDecoration(labelText: 'Cliente *', prefixIcon: Icon(Icons.person)),
                       items: _clients.map((c) => DropdownMenuItem(value: c.uuid, child: Text(c.name))).toList(),
                       onChanged: (v) => setState(() => _selectedClientUuid = v),

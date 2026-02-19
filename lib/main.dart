@@ -7,16 +7,16 @@ import 'data/datasources/database_service.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await DatabaseService.instance.database;
-  runApp(const ProviderScope(child: CobranzaProApp()));
+  runApp(const ProviderScope(child: ControlObraProApp()));
 }
 
-class CobranzaProApp extends StatelessWidget {
-  const CobranzaProApp({super.key});
+class ControlObraProApp extends StatelessWidget {
+  const ControlObraProApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      title: 'COBRANZA PRO BY TST SOLUTIONS',
+      title: 'CONTROL OBRA PRO BY TST SOLUTIONS',
       debugShowCheckedModeBanner: false,
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,

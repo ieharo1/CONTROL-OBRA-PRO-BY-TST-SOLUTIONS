@@ -7,9 +7,6 @@ import '../../theme/app_theme.dart';
 import '../../../data/models/debt.dart';
 import '../../../data/models/payment.dart';
 import '../../../data/models/client.dart';
-import '../../../data/repositories/debt_repository.dart';
-import '../../../data/repositories/client_repository.dart';
-import '../../../data/repositories/payment_repository.dart';
 
 class DebtDetailScreen extends ConsumerStatefulWidget {
   final String debtUuid;

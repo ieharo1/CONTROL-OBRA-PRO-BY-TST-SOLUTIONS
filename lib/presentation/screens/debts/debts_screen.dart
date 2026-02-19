@@ -6,7 +6,6 @@ import '../../providers/providers.dart';
 import '../../theme/app_theme.dart';
 import '../../../data/models/debt.dart';
 import '../../../data/models/client.dart';
-import '../../../data/repositories/client_repository.dart';
 
 class DebtsScreen extends ConsumerStatefulWidget {
   const DebtsScreen({super.key});

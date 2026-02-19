@@ -4,7 +4,6 @@ import 'package:go_router/go_router.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
 import '../../providers/providers.dart';
-import '../../../data/repositories/client_repository.dart';
 
 class ClientFormScreen extends ConsumerStatefulWidget {
   final String? clientUuid;
@@ -64,7 +63,7 @@ class _ClientFormScreenState extends ConsumerState<ClientFormScreen> {
               title: const Text('Tomar Foto'),
               onTap: () async {
                 final img = await picker.pickImage(source: ImageSource.camera);
-                if (img != null) Navigator.pop(context, img.path);
+                if (img != null && context.mounted) Navigator.pop(context, img.path);
               },
             ),
             ListTile(
@@ -72,7 +71,7 @@ class _ClientFormScreenState extends ConsumerState<ClientFormScreen> {
               title: const Text('Elegir de Galería'),
               onTap: () async {
                 final img = await picker.pickImage(source: ImageSource.gallery);
-                if (img != null) Navigator.pop(context, img.path);
+                if (img != null && context.mounted) Navigator.pop(context, img.path);
               },
             ),
           ],

@@ -3,8 +3,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import '../../providers/providers.dart';
 import '../../../data/models/debt.dart';
-import '../../../data/repositories/debt_repository.dart';
-import '../../../data/repositories/payment_repository.dart';
 
 class PaymentFormScreen extends ConsumerStatefulWidget {
   final String debtUuid;
@@ -127,7 +125,7 @@ class _PaymentFormScreenState extends ConsumerState<PaymentFormScreen> {
                         ),
                         const SizedBox(height: 16),
                         DropdownButtonFormField<String>(
-                          value: _method,
+                          initialValue: _method,
                           decoration: const InputDecoration(labelText: 'Método de Pago', prefixIcon: Icon(Icons.payment)),
                           items: _methods.map((m) => DropdownMenuItem(value: m, child: Text(m))).toList(),
                           onChanged: (v) => setState(() => _method = v!),

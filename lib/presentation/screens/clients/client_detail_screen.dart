@@ -7,8 +7,6 @@ import '../../providers/providers.dart';
 import '../../theme/app_theme.dart';
 import '../../../data/models/client.dart';
 import '../../../data/models/debt.dart';
-import '../../../data/repositories/client_repository.dart';
-import '../../../data/repositories/debt_repository.dart';
 import 'pdf_generator.dart';
 
 class ClientDetailScreen extends ConsumerStatefulWidget {
